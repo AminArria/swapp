@@ -24,3 +24,6 @@ Return of the Jedi
 A New Hope
 The Force Awakens
 ```
+
+## Testing
+To test the script run **swapp_test.rb** in the same directory.
