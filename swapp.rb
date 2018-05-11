@@ -5,7 +5,7 @@ require 'net/http'
 
 def valid_chars(char1, char2)
   if char1.nil? || char2.nil?
-    raise("You need to specify TWO character names in the script arguments")
+    abort("You need to specify TWO character names in the script arguments")
   end
 end
 
@@ -20,7 +20,7 @@ def get_char_films(char)
   response = swapi_get('https://swapi.co/api/people/', search: char)
 
   if response[:count] == 0
-    raise("#{char} is not a character in Star Wars")
+    abort("#{char} is not a character in Star Wars")
   end
 
   char_films = response[:results][0][:films]

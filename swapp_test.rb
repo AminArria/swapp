@@ -5,27 +5,43 @@ require 'minitest/autorun'
 
 class TestSwapp < MiniTest::Test
   def test_valid_chars_both_nil
-    assert_raises RuntimeError do
-      valid_chars(nil, nil)
+    out, err = capture_io do
+      assert_raises SystemExit do
+        valid_chars(nil, nil)
+      end
     end
+
+    assert_equal "You need to specify TWO character names in the script arguments\n", err
   end
 
   def test_valid_chars_char1_nil
-    assert_raises RuntimeError do
-      valid_chars(nil, 'yoda')
+    out, err = capture_io do
+      assert_raises SystemExit do
+        valid_chars(nil, 'yoda')
+      end
     end
+
+    assert_equal "You need to specify TWO character names in the script arguments\n", err
   end
 
   def test_valid_chars_char2_nil
-    assert_raises RuntimeError do
-      valid_chars('yoda', nil)
+    out, err = capture_io do
+      assert_raises SystemExit do
+        valid_chars('yoda', nil)
+      end
     end
+
+    assert_equal "You need to specify TWO character names in the script arguments\n", err
   end
 
   def test_char_films_not_exist
-    assert_raises RuntimeError do
-      get_char_films('rick sanchez')
+    out, err = capture_io do
+      assert_raises SystemExit do
+        get_char_films('rick sanchez')
+      end
     end
+
+    assert_equal "rick sanchez is not a character in Star Wars\n", err
   end
 
   def test_char_films
