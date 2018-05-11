@@ -7,11 +7,11 @@ Script to find movies in common between to Star Wars characters
 ## How to use
 To use you only neet to execute and pass two arguments which should be characters in Star Wars. For example:
 ```
-$> ruby swapp luke leia
+$> ruby swapp.rb luke leia
 ```
 or
 ```
-$> ./swapp yoda "han solo"
+$> ./swapp.rb yoda "han solo"
 ```
 
 ## Output
@@ -26,4 +26,11 @@ The Force Awakens
 ```
 
 ## Testing
-To test the script run **swapp_test.rb** in the same directory.
+To run the unit tests for the script execute **swapp_test.rb** in the same directory. For example:
+```
+$> ruby swapp_test.rb
+```
+or
+```
+$> ./swapp_test.rb
+```
