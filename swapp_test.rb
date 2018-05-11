@@ -60,4 +60,36 @@ class TestSwapp < MiniTest::Test
       print_titles(['A New Hope'])
     end
   end
+
+  def test_script_fail_no_characters
+    out, err = capture_subprocess_io do
+      assert_equal false, system("ruby swapp.rb")
+    end
+
+    assert_equal "You need to specify TWO character names in the script arguments\n", err
+  end
+
+  def test_script_fail_one_character
+    out, err = capture_subprocess_io do
+      assert_equal false, system("ruby swapp.rb luke")
+    end
+
+    assert_equal "You need to specify TWO character names in the script arguments\n", err
+  end
+
+  def test_script_fail_wrong_character
+    out, err = capture_subprocess_io do
+      assert_equal false, system("ruby swapp.rb bender luke")
+    end
+
+    assert_equal "bender is not a character in Star Wars\n", err
+  end
+
+  def test_script_success
+    out, err = capture_subprocess_io do
+      assert_equal true, system("ruby swapp.rb luke leia")
+    end
+
+    assert_equal "The Empire Strikes Back\nRevenge of the Sith\nReturn of the Jedi\nA New Hope\nThe Force Awakens\n", out
+  end
 end

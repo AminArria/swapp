@@ -26,7 +26,7 @@ The Force Awakens
 ```
 
 ## Testing
-To run the unit tests for the script execute **swapp_test.rb** in the same directory. For example:
+To run the tests for the script execute **swapp_test.rb** in the same directory. For example:
 ```
 $> ruby swapp_test.rb
 ```
